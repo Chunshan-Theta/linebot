@@ -9,6 +9,7 @@ var bot = linebot({
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
     var msg = event.message.text;
+    msg = replyMessage(msg);
     event.reply(msg).then(function(data) {
       // success
       console.log(msg);
@@ -28,3 +29,12 @@ var server = app.listen(process.env.PORT || 8080, function() {
   var port = server.address().port;
   console.log("App now running on port", port);
 });
+
+function replyMessage(messege){
+  if(messege=="你好"){
+    messege = "不是很好！"
+  }
+
+
+  return messege
+}
