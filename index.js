@@ -7,7 +7,16 @@ var bot = linebot({
   channelAccessToken: "KuLZ5dsGCpn48ZwL8wQZPxXsCX53/sLCjk38fI5DzNEQAlaCu1uARHDlEuZIRvA4T+0AjpqhlM7UqOBlFq9jhHjJTCheHsHqO3dcY6/VqjzIHVFwg+zO1cDz56hVJEGf3ZGIAFIPUD2bKTfOttGf/wdB04t89/1O/w1cDnyilFU="
 });
 bot.on('message', function(event) {
-  console.log(event); //把收到訊息的 event 印出來看看
+  if (event.message.type = 'text') {
+    var msg = event.message.text;
+    event.reply(msg).then(function(data) {
+      // success
+      console.log(msg);
+    }).catch(function(error) {
+      // error
+      console.log('error');
+    });
+  }
 });
 
 const app = express();
