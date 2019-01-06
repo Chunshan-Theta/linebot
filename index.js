@@ -82,9 +82,9 @@ function replyMessage(messege){
         console.log('-------------------------------------------');
       }
       console.log('-------------------Debug-------------------');
-      console.log("replyText: ",replyText.substring(0,midden_idx.length-1));
+      console.log("replyText: ",replyText.substring(0,replyText.length-1));
       console.log('-------------------------------------------');
-      return replyText.substring(0,midden_idx.length-1);
+      return replyText.substring(0,replyText.length-1);
     }
     catch (error) {
       midden_idx = messege.search("選");
