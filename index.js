@@ -52,14 +52,16 @@ function replyMessage(messege){
     console.log('-------------------------------------------');
     midden_idx = messege.search("選");
     range = messege.substring(0,midden_idx);
-    count = messege.substring(midden_idx);
+    count = messege.substring(midden_idx+1);
     try {
+      /*
       console.log('-------------------Debug-------------------');
       console.log("range");
       console.log(range);
       console.log("count");
       console.log(count);
       console.log('-------------------------------------------');
+      */
       assert(typeof range == "number");
       assert(typeof count == "number");
       replyText="";
