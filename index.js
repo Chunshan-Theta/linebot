@@ -59,11 +59,20 @@ function replyMessage(messege){
       count = parseInt(messege.substring(midden_idx+1));
       assert(typeof range == "number");
       assert(typeof count == "number");
-      assert(count >= range);
+      assert(range >= count);
       replyText="";
+      replyArray=[];
       for(var idx =0;idx<count;idx+=1){
-        replyText +=(Math.floor((Math.random() * range) + 1)).toString();
-        replyText +=',';
+        unit = Math.floor((Math.random() * range) + 1);
+        if(replyArray.indexOf(unit) < 0){
+          replyArray.append(unit);
+          replyText +=unit.toString();
+          replyText +=',';
+        }
+        else{
+          idx-=1;
+        }
+
       }
       return replyText.substring(0,midden_idx.length-1);
     }
