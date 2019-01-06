@@ -65,7 +65,7 @@ function replyMessage(messege){
       for(var idx =0;idx<count;idx+=1){
         unit = Math.floor((Math.random() * range) + 1);
         if(replyArray.indexOf(unit) < 0){
-          replyArray.append(unit);
+          replyArray.push(unit);
           replyText +=unit.toString();
           replyText +=',';
         }
