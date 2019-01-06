@@ -69,7 +69,7 @@ function replyMessage(messege){
 
         unit = Math.floor((Math.random() * range) + 1);
         if(replyArray.indexOf(unit) < 0){
-          replyArray.push(unit.toString());
+          replyArray.push(unit);
           replyText +=unit.toString();
           replyText +=',';
         }
@@ -79,6 +79,7 @@ function replyMessage(messege){
         console.log('-------------------Debug-------------------');
         console.log("idx: ",idx);
         console.log("replyText: ",replyText);
+        console.log("replyArray: ",replyArray);
         console.log('-------------------------------------------');
       }
       console.log('-------------------Debug-------------------');
