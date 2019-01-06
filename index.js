@@ -59,12 +59,13 @@ function replyMessage(messege){
       count = parseInt(messege.substring(midden_idx+1));
       assert(typeof range == "number");
       assert(typeof count == "number");
+      assert(count >= range);
       replyText="";
       for(var idx =0;idx<count;idx+=1){
         replyText +=(Math.floor((Math.random() * range) + 1)).toString();
         replyText +=',';
       }
-      return replyText;
+      return replyText.substring(0,midden_idx.length-1);
     }
     catch (error) {
       midden_idx = messege.search("選");
