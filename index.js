@@ -54,14 +54,7 @@ function replyMessage(messege){
     range = messege.substring(0,midden_idx);
     count = messege.substring(midden_idx+1);
     try {
-      /*
-      console.log('-------------------Debug-------------------');
-      console.log("range");
-      console.log(range);
-      console.log("count");
-      console.log(count);
-      console.log('-------------------------------------------');
-      */
+
       assert(typeof range == "number");
       assert(typeof count == "number");
       replyText="";
@@ -72,6 +65,14 @@ function replyMessage(messege){
       message = replyText;
     }
     catch (error) {
+      midden_idx = messege.search("選");
+      range = messege.substring(0,midden_idx);
+      count = messege.substring(midden_idx+1);
+      console.log('-------------------Debug-------------------');
+      console.log("range",range);
+      console.log("count",count);
+      console.log('-------------------------------------------');
+
       console.log('-------------------error-------------------');
       console.log(error);
       console.log('-------------------------------------------');
