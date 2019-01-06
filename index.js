@@ -45,6 +45,7 @@ function replyMessage(messege){
     console.log('process: messege=="你好"');
     console.log('-------------------------------------------');
     messege = "不是很好！";
+    return messege
 
   }else if (messege.search("選")) {
     console.log('----------------information----------------');
@@ -60,10 +61,10 @@ function replyMessage(messege){
       assert(typeof count == "number");
       replyText="";
       for(var idx =0;idx<count;idx+=1){
-        replyText +=(Math.floor((Math.random() * range) + 1)).toString()
-        replyText +=','
+        replyText +=(Math.floor((Math.random() * range) + 1)).toString();
+        replyText +=',';
       }
-      message = replyText;
+      return replyText;
     }
     catch (error) {
       midden_idx = messege.search("選");
@@ -77,6 +78,7 @@ function replyMessage(messege){
       console.log('-------------------error-------------------');
       console.log(error);
       console.log('-------------------------------------------');
+      return null;
     }
 
   }else{
@@ -84,11 +86,12 @@ function replyMessage(messege){
     console.log('process: messege.else');
     console.log('-------------------------------------------');
 
-    message = null;
+
+    return null
   }
 
 
-  return messege
+  return null
 }
 
 
