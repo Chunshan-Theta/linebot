@@ -7,16 +7,25 @@ var bot = linebot({
   channelAccessToken: "KuLZ5dsGCpn48ZwL8wQZPxXsCX53/sLCjk38fI5DzNEQAlaCu1uARHDlEuZIRvA4T+0AjpqhlM7UqOBlFq9jhHjJTCheHsHqO3dcY6/VqjzIHVFwg+zO1cDz56hVJEGf3ZGIAFIPUD2bKTfOttGf/wdB04t89/1O/w1cDnyilFU="
 });
 bot.on('message', function(event) {
+  console.log('-------------------event-------------------');
+  console.log(event);
+  console.log('-------------------------------------------');
   if (event.message.type = 'text') {
     var msg = event.message.text;
     msg = replyMessage(msg);
-    event.reply(msg).then(function(data) {
-      // success
-      console.log(msg);
-    }).catch(function(error) {
-      // error
-      console.log('error');
-    });
+    if(msg!=null){
+      event.reply(msg)
+      .then(function(data) {
+        // success
+        //console.log(msg);
+      })
+      .catch(function(error) {
+        // error
+        console.log('-------------------error-------------------');
+        console.log(error);
+        console.log('-------------------------------------------');
+      });
+    }
   }
 });
 
@@ -32,9 +41,48 @@ var server = app.listen(process.env.PORT || 8080, function() {
 
 function replyMessage(messege){
   if(messege=="你好"){
-    messege = "不是很好！"
+    messege = "不是很好！";
+  }else if (messege.search("選一個")) {
+
+
+
+    Math.floor((Math.random() * 10) + 1)
+  }else if (messege.search("選")) {
+    midden_idx = messege.search("選");
+    range = messege.substring(0,midden_idx);
+    count = messege.substring(midden_idx);
+    try {
+      assert(typeof range == "number");
+      assert(typeof count == "number");
+      replyText="";
+      for(var idx =0;idx<count;idx+=1){
+        replyText +=(Math.floor((Math.random() * range) + 1)).toString()
+        replyText +=','
+      }
+      message = replyText;
+    }
+    catch (error) {
+      console.log('-------------------error-------------------');
+      console.log(error);
+      console.log('-------------------------------------------');
+    }
+
+  }else{
+    message = null;
   }
 
 
   return messege
+}
+
+
+
+function assert(condition, message) {
+    if (!condition) {
+        message = message || "Assertion failed";
+        if (typeof Error !== "undefined") {
+            throw new Error(message);
+        }
+        throw message; // Fallback
+    }
 }
