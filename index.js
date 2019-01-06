@@ -41,13 +41,15 @@ var server = app.listen(process.env.PORT || 8080, function() {
 
 function replyMessage(messege){
   if(messege=="你好"){
+    console.log('----------------information----------------');
+    console.log('process: messege=="你好"');
+    console.log('-------------------------------------------');
     messege = "不是很好！";
-  }else if (messege.search("選一個")) {
 
-
-
-    Math.floor((Math.random() * 10) + 1)
   }else if (messege.search("選")) {
+    console.log('----------------information----------------');
+    console.log('process: messege.search("選")');
+    console.log('-------------------------------------------');
     midden_idx = messege.search("選");
     range = messege.substring(0,midden_idx);
     count = messege.substring(midden_idx);
@@ -68,6 +70,10 @@ function replyMessage(messege){
     }
 
   }else{
+    console.log('----------------information----------------');
+    console.log('process: messege.else');
+    console.log('-------------------------------------------');
+    
     message = null;
   }
 
