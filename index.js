@@ -62,18 +62,28 @@ function replyMessage(messege){
       assert(range >= count);
       replyText="";
       replyArray=[];
+      console.log('----------------information----------------');
+      console.log('process: Math.random()');
+      console.log('-------------------------------------------');
       for(var idx =0;idx<count;idx+=1){
+
         unit = Math.floor((Math.random() * range) + 1);
         if(replyArray.indexOf(unit) < 0){
-          replyArray.push(unit);
+          replyArray.push(unit.toString());
           replyText +=unit.toString();
           replyText +=',';
         }
         else{
-          idx-=1;
+          count+=1;
         }
-
+        console.log('-------------------Debug-------------------');
+        console.log("idx: ",idx);
+        console.log("replyText: ",replyText);
+        console.log('-------------------------------------------');
       }
+      console.log('-------------------Debug-------------------');
+      console.log("replyText: ",replyText.substring(0,midden_idx.length-1));
+      console.log('-------------------------------------------');
       return replyText.substring(0,midden_idx.length-1);
     }
     catch (error) {
