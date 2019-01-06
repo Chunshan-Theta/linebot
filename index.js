@@ -54,6 +54,12 @@ function replyMessage(messege){
     range = messege.substring(0,midden_idx);
     count = messege.substring(midden_idx);
     try {
+      console.log('-------------------Debug-------------------');
+      console.log("range");
+      console.log(range);
+      console.log("count");
+      console.log(count);
+      console.log('-------------------------------------------');
       assert(typeof range == "number");
       assert(typeof count == "number");
       replyText="";
@@ -73,7 +79,7 @@ function replyMessage(messege){
     console.log('----------------information----------------');
     console.log('process: messege.else');
     console.log('-------------------------------------------');
-    
+
     message = null;
   }
 
