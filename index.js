@@ -50,11 +50,12 @@ function replyMessage(messege){
     console.log('----------------information----------------');
     console.log('process: messege.search("選")');
     console.log('-------------------------------------------');
-    midden_idx = messege.search("選");
-    range = messege.substring(0,midden_idx);
-    count = messege.substring(midden_idx+1);
+
     try {
 
+      midden_idx = parseInt(messege.search("選"));
+      range = parseInt(messege.substring(0,midden_idx));
+      count = parseInt(messege.substring(midden_idx+1));
       assert(typeof range == "number");
       assert(typeof count == "number");
       replyText="";
@@ -69,8 +70,8 @@ function replyMessage(messege){
       range = messege.substring(0,midden_idx);
       count = messege.substring(midden_idx+1);
       console.log('-------------------Debug-------------------');
-      console.log("range",range);
-      console.log("count",count);
+      console.log("range: ",range);
+      console.log("count: ",count);
       console.log('-------------------------------------------');
 
       console.log('-------------------error-------------------');
