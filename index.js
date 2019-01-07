@@ -83,7 +83,14 @@ function replyMessage(messege){
           replyText +=',';
         }
         else{
-          count+=1;
+          for(var idx2 =0;idx2<count;idx2+=1){
+            if(replyArray.indexOf(idx2) < 0){
+              replyArray.push(idx2);
+              replyText +=idx2.toString();
+              replyText +=',';
+              break
+            }
+          }
         }
         console.log('-------------------Debug-------------------');
         console.log("idx: ",idx);
