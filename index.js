@@ -47,14 +47,17 @@ function replyMessage(messege){
     messege = "不是很好！";
     return messege
 
-  }else if(messege.search("找一個")>=0){
+  }else if(messege.search("選一個")>=0){
     console.log('----------------information----------------');
-    console.log('process: messege.search("找一個")');
+    console.log('process: messege.search("選一個")');
     console.log('-------------------------------------------');
     var optionArray=[];
     messege=messege.substring(messege.search("\n")+2);
     var runTimes = 0;
     while(messege.search('\n')){
+      console.log('-------------------Debug-------------------');
+      console.log("messege: ",messege);
+      console.log('-------------------------------------------');
       optionArray.push(messege.substring(0,messege.search("\n")));
       messege = messege.substring(messege.search("\n")+2);
       runTimes+=1;
