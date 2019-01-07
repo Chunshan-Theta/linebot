@@ -40,11 +40,11 @@ var server = app.listen(process.env.PORT || 8080, function() {
 });
 
 function replyMessage(messege){
-  if(messege=="你好"){
+  if(messege=="你好" ||  messege=="功能"){
     console.log('----------------information----------------');
     console.log('process: messege=="你好"');
     console.log('-------------------------------------------');
-    messege = "不是很好！";
+    messege = "您好，目前功能如下：\n(1)輸入 link 會出現我的好友邀請QR code\n(2)輸入 功能 會出現我的功能說明\n(3)輸入 3選1 我會從1~3隨機選擇一個數字\n (4)輸入 選一個\n選一個\n豬排\n鍋貼\n魯肉飯 \n我會從3項中選擇一個（要記得要每個選項都要換行喔）";
     return messege
 
   }else if(messege.search("選一個")>=0){
@@ -69,7 +69,7 @@ function replyMessage(messege){
       console.log("optionArray: ",optionArray);
       console.log('-------------------------------------------');
     }
-    return (optionArray[Math.floor(Math.random() * optionArray.length)]).toString();
+    return '我覺得 '+(optionArray[Math.floor(Math.random() * optionArray.length)]).toString()+' 比較好';
 
   }else if (messege.search("選")>=0) {
     console.log('----------------information----------------');
