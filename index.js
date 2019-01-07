@@ -48,6 +48,9 @@ function replyMessage(messege){
     return messege
 
   }else if(messege.search("選一個")){
+    console.log('----------------information----------------');
+    console.log('process: messege.search("選一個")');
+    console.log('-------------------------------------------');
     var optionArray=[];
     messege=messege.substring(messege.search("\n")+2);
     while(messege.search('\n')){
