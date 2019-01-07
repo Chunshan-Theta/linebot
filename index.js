@@ -44,10 +44,12 @@ function replyMessage(messege){
     console.log('----------------information----------------');
     console.log('process: messege=="你好"');
     console.log('-------------------------------------------');
-    messege = "您好，目前功能如下：\n(1)輸入 link 會出現我的好友邀請QR code\n(2)輸入 功能 會出現我的功能說明\n(3)輸入 3選1 我會從1~3隨機選擇一個數字\n (4)輸入 選一個\n選一個\n豬排\n鍋貼\n魯肉飯 \n我會從3項中選擇一個（要記得要每個選項都要換行喔）";
+    messege = "您好，目前功能如下：\n(1)輸入 link 會出現我的好友邀請QR code\n(2)輸入 功能 會出現我的功能說明\n(3)輸入 3選1 我會從1~3隨機選擇一個數字";
+    messege +="\n(4)輸入\n選一個\n豬排\n鍋貼\n魯肉飯 \n我會從3項中選擇一個（要記得要每個選項都要換行喔";
     return messege
 
-  }else if(messege.search("選一個")>=0){
+  }
+  else if(messege.search("選一個")>=0){
     console.log('----------------information----------------');
     console.log('process: messege.search("選一個")');
     console.log("messege: ",messege);
@@ -71,7 +73,8 @@ function replyMessage(messege){
     }
     return '我覺得 '+(optionArray[Math.floor(Math.random() * optionArray.length)]).toString()+' 比較好';
 
-  }else if (messege.search("選")>=0) {
+  }
+  else if(messege.search("選")>=0){
     console.log('----------------information----------------');
     console.log('process: messege.search("選")');
     console.log('-------------------------------------------');
@@ -133,7 +136,8 @@ function replyMessage(messege){
       return null;
     }
 
-  }else{
+  }
+  else{
     console.log('----------------information----------------');
     console.log('process: messege.else');
     console.log('-------------------------------------------');
