@@ -50,21 +50,24 @@ function replyMessage(messege){
   }else if(messege.search("選一個")>=0){
     console.log('----------------information----------------');
     console.log('process: messege.search("選一個")');
+    console.log("messege: ",messege);
     console.log('-------------------------------------------');
     var optionArray=[];
-    messege=messege.substring(messege.search("\n")+2);
+    messege+="\n";
+    messege=messege.substring(messege.search("\n")+1);
     var runTimes = 0;
     while(messege.search('\n')>=0){
-      console.log('-------------------Debug-------------------');
-      console.log("messege: ",messege);
-      console.log("optionArray: ",optionArray);
-      console.log('-------------------------------------------');
+
       optionArray.push(messege.substring(0,messege.search("\n")));
       messege = messege.substring(messege.search("\n")+1);
       runTimes+=1;
       if(runTimes>100){
         break
       }
+      console.log('-------------------Debug-------------------');
+      console.log("messege: ",messege);
+      console.log("optionArray: ",optionArray);
+      console.log('-------------------------------------------');
     }
     return (optionArray[Math.floor(Math.random() * optionArray.length)]).toString();
 
