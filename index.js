@@ -54,7 +54,7 @@ function replyMessage(messege){
     var optionArray=[];
     messege=messege.substring(messege.search("\n")+2);
     var runTimes = 0;
-    while(messege.search('\n')){
+    while(messege.search('\n')>=0){
       console.log('-------------------Debug-------------------');
       console.log("messege: ",messege);
       console.log('-------------------------------------------');
