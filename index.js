@@ -47,6 +47,15 @@ function replyMessage(messege){
     messege = "不是很好！";
     return messege
 
+  }else if(messege.search("選一個")){
+    var optionArray=[];
+    messege=messege.substring(messege.search("\n")+2);
+    while(messege.search('\n')){
+      optionArray.push(messege.substring(0,messege.search("\n")));
+      messege = messege.substring(messege.search("\n")+2);
+    }
+    return (optionArray[Math.floor(Math.random() * optionArray.length)]).toString();
+
   }else if (messege.search("選")) {
     console.log('----------------information----------------');
     console.log('process: messege.search("選")');
