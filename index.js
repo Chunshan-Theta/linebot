@@ -138,43 +138,33 @@ function replyMessage(messege){
 
   }
   else if(messege.search("骰")>=0&&messege.search("顆")>=0){
-    console.log('----------------information----------------');
-    console.log('process: messege.search("骰")');
-    console.log('-------------------------------------------');
+    
+    logging("process: messege.search('骰')",'information');
     try{
       var count = messege.substring(messege.search("骰")+1,messege.search("顆"));
       count = parseInt(count);
       assert(typeof count == "number");
       var dice = [1,2,3,4,5,6];
-      console.log('-------------------Debug-------------------');
-      console.log('dice',dice);
-      console.log('count',count);
-      console.log('-------------------------------------------');
+      logging('dice: '+dice.toString()+'\ncount: '+count.toString());
       if(messege.indexOf("[")>=0 && messege.indexOf("]")>=0){
-        console.log('-------------------Debug-------------------');
-        console.log('process: updated dices');
-        console.log('-------------------------------------------');
+        logging('process: updated dices');
         var dice_str = messege.substring(messege.indexOf("[")+1,messege.indexOf("]"));
         dice = dice_str.split(",");
       }
       var sum = 0;
       var sum_str = "";
       for(var i=0; i<count;i++){
-        console.log('-------------------Debug-------------------');
-        console.log('dice unit',unit);
-        console.log('-------------------------------------------');
+        logging('unit: '+unit.toString());
         var unit = dice[Math.floor(Math.random() * dice.length)];
         sum_str+='+'+unit.toString();
-        sum+=unit
+        sum+=parseInt(unit)
       }
       sum_str+=' = ';
       sum_str+=sum.toString();
       return sum_str.substring(1)
     }
     catch(e){
-      console.log('-------------------Error-------------------');
-      console.log('Error',e);
-      console.log('-------------------------------------------');
+      logging('Error: '+e.toString(),'Error');
       return null
     }
   }
@@ -201,4 +191,19 @@ function assert(condition, message) {
         }
         throw message; // Fallback
     }
+}
+function logging(message,level="DEBUG") {
+    try{
+      assert(typeof message == "string");
+      assert(typeof level == "string");
+      console.log('----------------'+level+'----------------');
+      console.log(message);
+      console.log('-------------------------------------------');
+    }
+    catch(e){
+      console.log('-------------------Error-------------------');
+      console.log('Error',e);
+      console.log('-------------------------------------------');
+    }
+
 }
