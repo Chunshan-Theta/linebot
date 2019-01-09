@@ -138,8 +138,11 @@ function replyMessage(messege){
 
   }
   else if(messege.search("骰")>=0&&messege.search("顆")>=0){
+    console.log('----------------information----------------');
+    console.log('process: messege.search("骰")');
+    console.log('-------------------------------------------');
     try{
-      var count = var dice_str = messege.substring(messege.search("骰")+1,messege.search("顆"));
+      var count = messege.substring(messege.search("骰")+1,messege.search("顆"));
       count = parseInt(count);
       assert(typeof count == "number");
       var dice = [1,2,3,4,5,6];
