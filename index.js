@@ -138,7 +138,7 @@ function replyMessage(messege){
 
   }
   else if(messege.search("骰")>=0&&messege.search("顆")>=0){
-    
+
     logging("process: messege.search('骰')",'information');
     try{
       var count = messege.substring(messege.search("骰")+1,messege.search("顆"));
@@ -154,8 +154,9 @@ function replyMessage(messege){
       var sum = 0;
       var sum_str = "";
       for(var i=0; i<count;i++){
-        logging('unit: '+unit.toString());
+
         var unit = dice[Math.floor(Math.random() * dice.length)];
+        logging('unit: '+unit.toString());
         sum_str+='+'+unit.toString();
         sum+=parseInt(unit)
       }
