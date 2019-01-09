@@ -150,11 +150,11 @@ function replyMessage(messege){
       console.log('dice',dice);
       console.log('count',count);
       console.log('-------------------------------------------');
-      if(messege.search("[") && messege.search("]")){
+      if(messege.search("\[") && messege.search("\]")){
         console.log('-------------------Debug-------------------');
         console.log('process: updated dices');
         console.log('-------------------------------------------');
-        var dice_str = messege.substring(messege.search("[")+1,messege.search("]"));
+        var dice_str = messege.substring(messege.search("\[")+1,messege.search("\]"));
         dice = dice_str.split(",");
       }
       var sum = 0;
