@@ -137,6 +137,31 @@ function replyMessage(messege){
     }
 
   }
+  else if(messege.search("骰")>=0&&messege.search("顆")>=0){
+    try{
+      var count = var dice_str = messege.substring(messege.search("骰")+1,messege.search("顆"));
+      count = parseInt(count);
+      assert(typeof count == "number");
+      var dice = [1,2,3,4,5,6];
+      if(messege.search("[") && messege.search("]")){
+        var dice_str = messege.substring(messege.search("[")+1,messege.search("]"));
+        dice = dice_str.split(",");
+      }
+      var sum = 0;
+      var sum_str = "";
+      for(var i=0; i<count;i++){
+        var unit = dice[Math.floor(Math.random() * dice.length)];
+        sum_str+='+'+unit.toString();
+        sum+=unit
+      }
+      sum_str+=' = ';
+      sum_str+=sum.toString();
+      return sum_str.substring(1)
+    }
+    catch(e){
+      return null
+    }
+  }
   else{
     console.log('----------------information----------------');
     console.log('process: messege.else');
