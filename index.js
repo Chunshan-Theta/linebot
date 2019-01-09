@@ -94,30 +94,28 @@ function replyMessage(messege){
       console.log('----------------information----------------');
       console.log('process: Math.random()');
       console.log('-------------------------------------------');
+      var rangeArray =[];
+      for(var i = 1; i <= range; i++){
+        rangeArray.push(i);
+      }
+
       for(var idx =0;idx<count;idx+=1){
 
-        var unit = Math.floor((Math.random() * range) + 1);
+        //select it from array
+        var unit = rangeArray[Math.floor(Math.random() * rangeArray.length)];
+        replyArray.push(unit);
+        replyText +=unit.toString();
+        replyText +=',';
 
-        if(replyArray.indexOf(unit) < 0){
-          replyArray.push(unit);
-          replyText +=unit.toString();
-          replyText +=',';
+        //Delete it from array
+        var index = rangeArray.indexOf(unit);
+        if (index > -1) {
+          rangeArray.splice(index, 1);
         }
-        else{
-          for(var idx2 =0+1;idx2<range+1;idx2+=1){//from 1 to top of range to select a new number.
-            if(replyArray.indexOf(idx2) < 0){
-              replyArray.push(idx2);
-              replyText +=idx2.toString();
-              replyText +=',';
-              break
-            }
-          }
-        }
-        console.log('-------------------Debug-------------------');
-        console.log("idx: ",idx);
-        console.log("replyText: ",replyText);
-        console.log("replyArray: ",replyArray);
-        console.log('-------------------------------------------');
+
+
+        logging("idx: "+idx.toString()+"\nreplyText: "+replyText.toString()+"\nreplyArray: "+replyArray.toString()+"\nrangeArray: "+rangeArray.toString());
+
       }
       console.log('-------------------Debug-------------------');
       console.log("replyText: ",replyText.substring(0,replyText.length-1));
