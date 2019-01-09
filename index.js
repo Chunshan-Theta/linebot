@@ -150,7 +150,7 @@ function replyMessage(messege){
       console.log('dice',dice);
       console.log('count',count);
       console.log('-------------------------------------------');
-      if(messege.indexOf("[") && messege.indexOf("]")){
+      if(messege.indexOf("[")>=0 && messege.indexOf("]")>=0){
         console.log('-------------------Debug-------------------');
         console.log('process: updated dices');
         console.log('-------------------------------------------');
