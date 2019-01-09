@@ -97,14 +97,14 @@ function replyMessage(messege){
       for(var idx =0;idx<count;idx+=1){
 
         var unit = Math.floor((Math.random() * range) + 1);
-        
+
         if(replyArray.indexOf(unit) < 0){
           replyArray.push(unit);
           replyText +=unit.toString();
           replyText +=',';
         }
         else{
-          for(var idx2 =1;idx2<count;idx2+=1){
+          for(var idx2 =0+1;idx2<range+1;idx2+=1){//from 1 to top of range to select a new number.
             if(replyArray.indexOf(idx2) < 0){
               replyArray.push(idx2);
               replyText +=idx2.toString();
