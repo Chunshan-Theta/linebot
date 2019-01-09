@@ -96,7 +96,10 @@ function replyMessage(messege){
       console.log('-------------------------------------------');
       for(var idx =0;idx<count;idx+=1){
 
-        unit = Math.floor((Math.random() * range) + 1);
+        var unit = Math.floor((Math.random() * range) + 1);
+        while(unit==0){
+          unit = Math.floor((Math.random() * range) + 1);
+        }
         if(replyArray.indexOf(unit) < 0){
           replyArray.push(unit);
           replyText +=unit.toString();
