@@ -146,6 +146,10 @@ function replyMessage(messege){
       count = parseInt(count);
       assert(typeof count == "number");
       var dice = [1,2,3,4,5,6];
+      console.log('-------------------Debug-------------------');
+      console.log('dice',dice);
+      console.log('count',count);
+      console.log('-------------------------------------------');
       if(messege.search("[") && messege.search("]")){
         console.log('-------------------Debug-------------------');
         console.log('process: updated dices');
@@ -168,6 +172,9 @@ function replyMessage(messege){
       return sum_str.substring(1)
     }
     catch(e){
+      console.log('-------------------Error-------------------');
+      console.log('Error',e);
+      console.log('-------------------------------------------');
       return null
     }
   }
