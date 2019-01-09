@@ -147,12 +147,18 @@ function replyMessage(messege){
       assert(typeof count == "number");
       var dice = [1,2,3,4,5,6];
       if(messege.search("[") && messege.search("]")){
+        console.log('-------------------Debug-------------------');
+        console.log('process: updated dices');
+        console.log('-------------------------------------------');
         var dice_str = messege.substring(messege.search("[")+1,messege.search("]"));
         dice = dice_str.split(",");
       }
       var sum = 0;
       var sum_str = "";
       for(var i=0; i<count;i++){
+        console.log('-------------------Debug-------------------');
+        console.log('dice unit',unit);
+        console.log('-------------------------------------------');
         var unit = dice[Math.floor(Math.random() * dice.length)];
         sum_str+='+'+unit.toString();
         sum+=unit
